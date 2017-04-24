@@ -17,6 +17,7 @@ public class Model {
         return notebook;
     }
 
+    //Search in the book. If not then add.
     public int findPerson(Person person) {
         int indexPerson=-1;
         for (int i = 0; i < this.notebook.size(); i++) {
@@ -27,6 +28,7 @@ public class Model {
         return indexPerson;
     }
 
+    // Add to notebook entity(Note{createDate, Person, editDate})
     public void addNote(String currentDate, Person person) {
         int indexPerson=findPerson(person);
         if (indexPerson>=0){
@@ -37,11 +39,10 @@ public class Model {
         }
     }
 
-    public void printAll(){
-        for (Note note : notebook) {
-            System.out.println(note.toString());
-        }
+    @Override
+    public String toString() {
+        return "Model{" +
+                "notebook=" + notebook +
+                '}';
     }
-
-
 }

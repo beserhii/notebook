@@ -21,6 +21,7 @@ public class InputNoteController {
         Person person = new Person();
         UtilController utilController = new UtilController();
 
+        //
         person.setFirstName(utilController.doMatch(sc, view.FIRST_NAME, Regex.REGEX_NAME));
         person.setMiddleName(utilController.doMatch(sc, view.MIDDLE_NAME, Regex.REGEX_NAME));
         person.setLastName(utilController.doMatch(sc, view.LAST_NAME, Regex.REGEX_NAME));
@@ -43,6 +44,7 @@ public class InputNoteController {
                 .format(Calendar.getInstance().getTime())
                 .toString()), person);
 
-    }
+        view.message(model.toString());
 
+    }
 }

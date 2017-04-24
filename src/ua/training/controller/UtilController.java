@@ -22,4 +22,6 @@ public class UtilController {
         View.message(View.WRONG_DATA, View.DOT, View.SPACE, View.AGAIN, View.DOT);
         return false;
     }
+
+
 }
