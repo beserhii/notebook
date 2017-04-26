@@ -15,12 +15,13 @@ public class InputNoteController {
     public InputNoteController(Model model, View view) {
         this.model = model;
         this.view = view;
+
     }
 
-    public void inputWithScanner(Scanner sc) {
+    public void inputWithScanner() {
         Person person = new Person();
         UtilController utilController = new UtilController();
-
+        Scanner sc = new Scanner(System.in);
         //
         person.setFirstName(utilController.doMatch(sc, view.FIRST_NAME, Regex.REGEX_NAME));
         person.setMiddleName(utilController.doMatch(sc, view.MIDDLE_NAME, Regex.REGEX_NAME));

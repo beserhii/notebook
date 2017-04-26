@@ -17,8 +17,8 @@ public class Controller {
     }
 
     public void processUser() {
-        Scanner sc = new Scanner(System.in);
-        new InputNoteController(model,view).inputWithScanner(sc);
+
+        new InputNoteController(model,view).inputWithScanner();
 
     }
 }
