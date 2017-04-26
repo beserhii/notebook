@@ -18,16 +18,17 @@ public class InputNoteController {
 
     }
 
-    public void inputWithScanner() {
+    public void inputWithScanner() throws InputException {
+
         Person person = new Person();
         UtilController utilController = new UtilController();
         Scanner sc = new Scanner(System.in);
-        //
-        person.setFirstName(utilController.doMatch(sc, view.FIRST_NAME, Regex.REGEX_NAME));
+
+        person.setNickName(utilController.doMatch(sc, view.NICKNAME, Regex.REGEX_COMMENT));
+/*        person.setFirstName(utilController.doMatch(sc, view.FIRST_NAME, Regex.REGEX_NAME));
         person.setMiddleName(utilController.doMatch(sc, view.MIDDLE_NAME, Regex.REGEX_NAME));
         person.setLastName(utilController.doMatch(sc, view.LAST_NAME, Regex.REGEX_NAME));
         view.message("OK", view.SPACE, person.getFullName());
-        person.setNickName(utilController.doMatch(sc, view.NICKNAME, Regex.REGEX_COMMENT));
         person.setComments(utilController.doMatch(sc, view.COMMENT, Regex.REGEX_COMMENT));
         person.setGroup(utilController.doMatch(sc, view.GROUP, Regex.REGEX_GROUP));
         person.setPhoneHome(utilController.doMatch(sc, view.PHONE, Regex.REGEX_PHONE));
@@ -39,13 +40,13 @@ public class InputNoteController {
                 utilController.doMatch(sc, view.CITY, Regex.REGEX_CITY_STREET),
                 utilController.doMatch(sc, view.STREET_NAME, Regex.REGEX_CITY_STREET),
                 utilController.doMatch(sc, view.HOUSE_NUMBER, Regex.REGEX_HOUSE_NUMBER),
-                utilController.doMatch(sc, view.APARTMENT_NUMBER, Regex.REGEX_HOUSE_NUMBER));
+                utilController.doMatch(sc, view.APARTMENT_NUMBER, Regex.REGEX_HOUSE_NUMBER));*/
 
-        model.addNote((new SimpleDateFormat("dd/MM/yyyy")
-                .format(Calendar.getInstance().getTime())
-                .toString()), person);
+        model.addNote(person);
 
         view.message(model.toString());
 
+
     }
+
 }

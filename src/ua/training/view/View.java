@@ -4,10 +4,12 @@ import java.util.Arrays;
 
 public class View {
 
+    public static final String INPUT="Input ";
     public static final String FIRST_NAME="First name: ";
     public static final String MIDDLE_NAME="Middle name: ";
     public static final String LAST_NAME="Last name: ";
     public static final String NICKNAME="Nickname: ";
+    public static final String WRONG_NICKNAME="Name already exists, enter new nickname: ";
     public static final String EMAIL="Email: ";
     public static final String SKYPE="Skype: ";
     public static final String INDEX_CITY="Index city: ";

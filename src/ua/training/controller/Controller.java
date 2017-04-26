@@ -10,15 +10,23 @@ public class Controller {
     Model model;
     View view;
 
-    public Controller(Model model, View view) {
-
+    public Controller(Model model, View view){
         this.model = model;
         this.view = view;
     }
 
-    public void processUser() {
+    public void processUser() throws InputException {
+        InputNoteController inputNoteController = new InputNoteController (model,view);
 
-        new InputNoteController(model,view).inputWithScanner();
+            inputNoteController.inputWithScanner();
+        try {
+            inputNoteController.inputWithScanner();
+        } catch (InputException e) {
+            view.message(view.WRONG_NICKNAME);
+            inputNoteController.inputWithScanner();
+
+        }
+
 
     }
 }

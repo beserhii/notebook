@@ -1,5 +1,6 @@
 package ua.training.model;
 
+import ua.training.controller.InputException;
 import ua.training.controller.Person;
 
 import java.util.ArrayList;
@@ -7,35 +8,30 @@ import java.util.List;
 
 public class Model {
 
-    List<Note> notebook;
-
+    List<Person> notebook;
     public Model() {
         this.notebook = new ArrayList<>();
     }
-
-    public List<Note> getNote() {
+    public List<Person> getNote() {
         return notebook;
     }
 
     //Search in the book. If not then add.
-    public int findPerson(Person person) {
-        int indexPerson=-1;
+    public boolean findNickname(Person person) throws InputException{
+
         for (int i = 0; i < this.notebook.size(); i++) {
-            if (this.notebook.get(i).equals(person)) {
-                indexPerson=i;
+            if (this.notebook.get(i).getNickName().equals(person.getNickName())) {
+                throw new InputException("WRONG INPUT DATA");
             }
         }
-        return indexPerson;
+        return true;
     }
 
     // Add to notebook entity(Note{createDate, Person, editDate})
-    public void addNote(String currentDate, Person person) {
-        int indexPerson=findPerson(person);
-        if (indexPerson>=0){
-            this.notebook.get(indexPerson).setDateLastEdit(currentDate);
-        }
-        else{
-            this.notebook.add(new Note(currentDate,person,currentDate));
+    public void addNote (Person person) throws InputException{
+
+        if(findNickname(person)){
+            this.notebook.add(person);
         }
     }
 
